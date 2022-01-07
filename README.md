@@ -1,2 +1,2 @@
 # LinkedList
-Java codes for Linked List. All basic beginer to advace level linked list.
+Java codes for Linked List. All beginer to advace level linked list questions and codes.
