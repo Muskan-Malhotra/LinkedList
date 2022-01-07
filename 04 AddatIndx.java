@@ -21,7 +21,29 @@ class AtatIndx {
 
     //At at index with Value
     public void addAt(int idx, int val){
+      AtatIndx at = new AtatIndx();
+      Node n = at.new Node(val,null);
 
+      Node temp = head;
+
+      if(idx==0){
+        addFirst(val);
+      }
+      else if(idx ==size){
+        addLast(val);
+      }
+      else if(idx<0 || idx > size){
+        System.out.println("Invalid arguments");
+      }
+      else{
+        for(int i=1;i<idx;i++){
+          temp = temp.next;
+        }
+
+        n.next = temp.next;
+        temp.next = n;
+        size++;
+      }
 
     }
 
@@ -39,8 +61,22 @@ class AtatIndx {
         tail = n;
       }
       size++;
+    }
 
+     //Add first
+     public void addFirst(int val){
+      AtatIndx at = new AtatIndx();
+      Node n = at.new Node(val, null);
 
+      if(size == 0){
+        head = n;
+        tail = n;
+      }
+      else{
+        n.next = head;
+        head = n;
+      }
+      size++;
     }
 
     //Display
@@ -79,6 +115,11 @@ public static void main(String[] args) throws IOException{
       int val = Integer.parseInt(str.split(" ")[2]);
       list.addAt(idx,val);
     }
+    else if(str.startsWith("addFirst")){
+      int val = Integer.parseInt(str.split(" ")[1]);
+      list.addFirst(val);
+    }
+    str = br.readLine();
   }
 
 }  
